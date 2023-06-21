@@ -20,7 +20,7 @@ const Search = () => {
       const clonedPokemons = [...allPokemon];
       const randomPokemonsId = clonedPokemons
         .sort(() => Math.random() - Math.random())
-        .slice(0, 120);
+        .slice(0, 30);
 
       dispatch(getPokemonData(randomPokemonsId));
     }
@@ -29,8 +29,8 @@ const Search = () => {
   return (
     <>
       <div className="search">
-        <input type="text" name="" id="" />
-        <h3> Display Pokemons :{randomPokemons && randomPokemons?.length}</h3>
+        <h3> DisplayPokemons :{randomPokemons && randomPokemons?.length}</h3>
+        <input type="text" name="" id="" placeholder="Search pokemon" />
         <PokemonCardGrid pokemons={randomPokemons!} />
       </div>
     </>

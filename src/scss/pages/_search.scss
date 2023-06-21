@@ -4,4 +4,31 @@
   min-width: 100%;
   color: white;
   text-transform: uppercase;
+  h3 {
+    margin: 10px 0;
+    color: white;
+  }
+  input {
+    width: 100%;
+    font-size: large;
+    line-height: 2rem;
+    padding: 5px 10px;
+    font-family: Arial;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .search {
+    width: 100vw;
+    h3 {
+      width: 100vw;
+      text-align: center;
+      color: white;
+    }
+    input {
+      &:focus {
+        outline: none;
+      }
+    }
+  }
 }

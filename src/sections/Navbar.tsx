@@ -10,6 +10,11 @@ const Navbar = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const navigationRoutes = [
     {
+      name: "Home",
+      route: "/home",
+    },
+
+    {
       name: "Search",
       route: "/search",
     },
