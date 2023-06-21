@@ -17,13 +17,21 @@ export interface generatedPokemonType {
 }
 
 export interface pokemonTypeInterface {
-  [key: string]:
-    | {
-        image: string;
-        resistance: string[];
-        strength: string[];
-        weakness: string[];
-        vulnerable: string[];
-      }
-    | undefined;
+  [key: string]: {
+    image: string;
+    resistance: string[];
+    strength: string[];
+    weakness: string[];
+    vulnerable: string[];
+  };
+}
+
+export interface pokemonStatsType {
+  name: string;
+  value: string;
+}
+
+export interface userPokemonsType extends generatedPokemonType {
+  firebaseId?: string;
+  image: string;
 }
