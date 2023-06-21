@@ -31,47 +31,18 @@ const Navbar = () => {
     },
   ];
 
-  //   useEffect(() => {
-  //     const index = navigationRoutes.findIndex(({ route }) =>
-  //       location.pathname.includes(route)
-  //     );
-  //     ul(index);
-  //   });
-
-  //   useEffect(() => {
-  //     const index = navigationRoutes.findIndex(({ route }) =>
-  //       location.pathname.includes(route)
-  //     );
-  //     ul(index);
-  //   }, []);
-
-  //   //   function ul(index: number) {
-  //   //     const underlines = document.querySelectorAll<HTMLElement>(".underline ");
-
-  //   //     for (let i = 0; i < underlines.length; i++) {
-  //   //       underlines[i].style.transform = "translate3d(" + index * 100 + " %,0,0)";
-  //   //     }
-  //   //   }
-
-  //   function ul(index: number) {
-  //     var underlines = document.querySelectorAll<HTMLElement>(".underline");
-  //     for (var i = 0; i < underlines.length; i++) {
-  //       underlines[i].style.transform = "translate3d(" + index * 100 + "%,0,0)";
-  //     }
-  //   }
-
-  //*********************** */
-
   useEffect(() => {
     const index = navigationRoutes.findIndex(({ route }) =>
       location.pathname.includes(route)
     );
     ul(index);
   }, [location.pathname, navigationRoutes]);
+
   function ul(index: number) {
     var underlines = document.querySelectorAll<HTMLElement>(".underline");
     for (var i = 0; i < underlines.length; i++) {
-      underlines[i].style.transform = "translate3d(" + index * 100 + "%,0,0)";
+      //   underlines[i].style.transform = "translate3d(" + index * 100 + "%,0,0)";
+      underlines[i].style.transform = "translateX(" + index * 100 + "%)";
     }
   }
   return (
@@ -84,6 +55,7 @@ const Navbar = () => {
           <div className="underline"></div>
           <div className="underline"></div>
           <div className="underline"></div>
+
           {navigationRoutes.map(({ name, route }, index) => {
             return (
               <Link to={route} key={index}>
