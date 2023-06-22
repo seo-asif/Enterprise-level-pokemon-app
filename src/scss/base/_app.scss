@@ -28,6 +28,15 @@
   }
 }
 
+::-webkit-scrollbar {
+  background-color: transparent;
+  margin-top: 15px;
+  width: 0.4rem;
+  &-thumb {
+    background-color: rgba(219, 219, 219, 0.557);
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .app {
     grid-template-rows: 7vh auto 5vh;

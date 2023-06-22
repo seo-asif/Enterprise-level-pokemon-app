@@ -9,6 +9,7 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 4rem;
     margin: 4rem 0;
+    justify-items: center;
 
     .pokemon-card {
       width: 270px;
