@@ -6,7 +6,7 @@ export interface PokemonTypeInitialState {
 
 export interface genericPokeMonType {
   name: string;
-  url: string;
+  url: string | undefined;
 }
 
 export interface generatedPokemonType {

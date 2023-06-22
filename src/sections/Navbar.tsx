@@ -10,11 +10,6 @@ const Navbar = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const navigationRoutes = [
     {
-      name: "Home",
-      route: "/home",
-    },
-
-    {
       name: "Search",
       route: "/search",
     },
@@ -46,7 +41,7 @@ const Navbar = () => {
   function ul(index: number) {
     var underlines = document.querySelectorAll<HTMLElement>(".underline");
     for (var i = 0; i < underlines.length; i++) {
-      //   underlines[i].style.transform = "translate3d(" + index * 100 + "%,0,0)";
+      // underlines[i].style.transform = "translate3d(" + index * 100 + "%,0,0)";
       underlines[i].style.transform = "translateX(" + index * 100 + "%)";
     }
   }

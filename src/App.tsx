@@ -12,7 +12,6 @@ import MyList from "./pages/MyList";
 import About from "./pages/About";
 import Compare from "./pages/Compare";
 import Pokemon from "./pages/Pokemon";
-import Home from "./pages/Home";
 
 function App() {
   return (
@@ -24,7 +23,6 @@ function App() {
           <Navbar />
 
           <Routes>
-            <Route path="/home" element={<Home />} />
             <Route path="/search" element={<Search />} />
             <Route path="/compare" element={<Compare />} />
             <Route path="/list" element={<MyList />} />

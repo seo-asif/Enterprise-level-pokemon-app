@@ -29,8 +29,15 @@ const Search = () => {
   return (
     <>
       <div className="search">
-        <h3> DisplayPokemons :{randomPokemons && randomPokemons?.length}</h3>
-        <input type="text" name="" id="" placeholder="Search pokemon" />
+        <h3 className="search-h3">
+         
+          Display Pokemons :{randomPokemons && randomPokemons?.length}
+        </h3>
+        <input
+          type="text"
+          className="pokemon-searchbar"
+          placeholder="Search pokemon"
+        />
         <PokemonCardGrid pokemons={randomPokemons!} />
       </div>
     </>

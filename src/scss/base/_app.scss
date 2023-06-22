@@ -19,15 +19,18 @@
   grid-template-columns: 1fr;
   .content {
     margin: 0 5rem;
-    border: 0.5px solid rgba(255, 255, 255, 0.203);
+    // border: 0.5px solid rgba(255, 255, 255, 0.203);
     border-top: none;
     border-bottom: none;
     height: 80vh;
+    // background-color: rgba(255, 255, 255, 0.052);
+    // overflow: hidden;
   }
 }
 
 @media only screen and (max-width: 600px) {
   .app {
+    grid-template-rows: 7vh auto 5vh;
     .content {
       margin: 0;
     }

@@ -1,12 +1,11 @@
 import { IoGitCompare } from "react-icons/io5";
 import { FaPlus, FaTrash } from "react-icons/fa";
 import { pokemonTypeInterface, userPokemonsType } from "../utils/Type";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const PokemonCardGrid = ({ pokemons }: { pokemons: userPokemonsType[] }) => {
   const location = useLocation();
-  // Generate a random translateY value between -10 and 10 pixels
-  const randomTranslateY = `${Math.floor(Math.random() * 21) - 10}px`;
+  const navigate = useNavigate();
   return (
     <div className="pokemon-card-grid-container">
       <div className="pokemon-card-grid">
@@ -33,6 +32,7 @@ const PokemonCardGrid = ({ pokemons }: { pokemons: userPokemonsType[] }) => {
                   alt="pokemon"
                   className="pokemon-card-image"
                   loading="lazy"
+                  onClick={() => navigate(`/pokemon/${data.id}`)}
                 />
                 <div className="pokemon-card-types">
                   {data.types.map(

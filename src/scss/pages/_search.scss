@@ -4,31 +4,51 @@
   min-width: 100%;
   color: white;
   text-transform: uppercase;
-  h3 {
-    margin: 10px 0;
+  &-h3 {
+    // margin: 10px 0;
+    text-align: end;
+    margin: 1rem;
     color: white;
-  }
-  input {
-    width: 100%;
-    font-size: large;
-    line-height: 2rem;
-    padding: 5px 10px;
     font-family: Arial;
+  }
+  // input {
+  //   width: 100%;
+  //   font-size: large;
+  //   line-height: 2rem;
+  //   padding: 5px 10px;
+  //   font-family: Arial;
+  // }
+  .pokemon-searchbar {
+    width: 100%;
+    height: 9%;
+    padding-left: 1rem;
+    font-size: 1.3rem;
+    background-color: rgba(255, 255, 255, 0.125);
+    outline: none;
+    border: none;
+    color: white;
+    box-shadow: rgba(179, 179, 179, 0.35) 0px 5px 25px;
+    &::-webkit-input-placeholder {
+      color: rgba(255, 255, 255, 0.45);
+    }
   }
 }
 
 @media only screen and (max-width: 600px) {
   .search {
     width: 100vw;
-    h3 {
+    &-h3 {
       width: 100vw;
-      text-align: center;
+      text-align: end;
       color: white;
+      font-size: 13px;
+      padding-right: 30px;
+      margin: 15px 0;
     }
-    input {
-      &:focus {
-        outline: none;
-      }
-    }
+    // input {
+    //   &:focus {
+    //     outline: none;
+    // //   }
+    // }
   }
 }
