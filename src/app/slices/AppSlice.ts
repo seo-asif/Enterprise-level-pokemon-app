@@ -13,7 +13,6 @@ export const AppSlice = createSlice({
       const toasts = [...state.toasts];
       toasts.push(action.payload);
       state.toasts = toasts;
-      console.log(toasts);
     },
     clearToasts: (state) => {
       state.toasts = [];

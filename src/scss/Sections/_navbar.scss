@@ -72,6 +72,11 @@ nav {
 @media only screen and (max-width: 600px) {
   nav {
     border-bottom: none;
+    .data {
+      ul {
+        display: none;
+      }
+    }
     .block {
       img {
         padding-top: 10px;

@@ -7,7 +7,6 @@ import { addToCompare, removeFromCompare } from "../app/slices/PokemonSlice";
 import { useAppDispatch } from "../app/hooks";
 import { setToast } from "../app/slices/AppSlice";
 
-
 const PokemonCardGrid = ({ pokemons }: { pokemons: userPokemonsType[] }) => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -36,7 +35,6 @@ const PokemonCardGrid = ({ pokemons }: { pokemons: userPokemonsType[] }) => {
                       dispatch(
                         setToast(`${data.name} has been added to Compare Queue`)
                       );
-                      console.log("Added");
                     }}
                   />
                 </div>

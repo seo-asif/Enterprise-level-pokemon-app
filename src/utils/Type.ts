@@ -39,3 +39,29 @@ export interface userPokemonsType extends generatedPokemonType {
   firebaseId?: string;
   image: string;
 }
+
+export type pokemonStatType =
+  | "vulnerable"
+  | "weakness"
+  | "strength"
+  | "resistance";
+
+export type pokemonElementType =
+  | "bug"
+  | "dark"
+  | "dragon"
+  | "electric"
+  | "fairy"
+  | "fighting"
+  | "fire"
+  | "flying"
+  | "ghost"
+  | "grass"
+  | "ground"
+  | "ice"
+  | "normal"
+  | "poison"
+  | "psychic"
+  | "rock"
+  | "steel"
+  | "water";
