@@ -5,6 +5,9 @@ import {
 } from "../utils/Type";
 import { FaPlus } from "react-icons/fa";
 import { pokemonTypes } from "../utils/getPokemonTypes";
+import { useDispatch } from "react-redux";
+import { removeFromCompare } from "../app/slices/PokemonSlice";
+import { Link, useNavigate } from "react-router-dom";
 
 const CompareContainer = ({
   pokemon = undefined,
@@ -13,6 +16,8 @@ const CompareContainer = ({
   pokemon?: userPokemonsType;
   isEmpty?: boolean;
 }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const createStatsArray = (
     types: pokemonTypeInterface[],
     statType: pokemonStatType
@@ -126,9 +131,9 @@ const CompareContainer = ({
     <div className="compare-container">
       {isEmpty && (
         <div className="empty">
-          <button>
+          <Link to="/search" className="empty-button">
             <FaPlus />
-          </button>
+          </Link>
           <h3>Add Pokemon to Comparison</h3>
         </div>
       )}
@@ -170,8 +175,20 @@ const CompareContainer = ({
           </div>
           <div className="compare-action-buttons">
             <button className="compare-btn">Add</button>
-            <button className="compare-btn">View</button>
-            <button className="compare-btn">remove</button>
+            <button
+              className="compare-btn"
+              onClick={() => navigate(`/pokemon/${pokemon.id}`)}
+            >
+              View
+            </button>
+            <button
+              className="compare-btn"
+              onClick={() => {
+                dispatch(removeFromCompare({ id: pokemon.id }));
+              }}
+            >
+              remove
+            </button>
           </div>
         </div>
       )}

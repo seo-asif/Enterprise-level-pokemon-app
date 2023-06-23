@@ -5,12 +5,12 @@ import {
 } from "../../utils/Type";
 import { getInitialPokemonData } from "../reducers/getInitialPokemonData";
 import { getPokemonData } from "../reducers/getPokemonData";
-import { stat } from "fs";
 
 const initialState: PokemonTypeInitialState = {
   allPokemon: undefined,
   randomPokemons: undefined,
   compareQueue: [],
+  userPokemons: [],
 };
 
 export const PokemonSlice = createSlice({
@@ -33,7 +33,8 @@ export const PokemonSlice = createSlice({
         (pokemon: generatedPokemonType) => pokemon.id === action.payload.id
       );
       const queue = [...state.compareQueue];
-      queue.slice(index, 1);
+      queue.splice(index, 1);
+
       state.compareQueue = queue;
     },
   },

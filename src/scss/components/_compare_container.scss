@@ -8,7 +8,7 @@
     align-items: center;
     gap: 3rem;
     height: 100%;
-    button {
+    .empty-button {
       cursor: pointer;
       border-radius: 10rem;
       padding: 2rem;
@@ -17,9 +17,15 @@
       align-items: center;
       border: none;
       background-color: var(--accent-color);
+      
       svg {
         font-size: 5rem;
         color: whitesmoke;
+        &:hover{
+          color: greenyellow;
+          transition: all 0.3s ease-in-out;
+          transform: scale(1.2);
+        }
       }
     }
     h3 {
@@ -73,7 +79,7 @@
         .pokemon-type-icons {
           display: flex;
           gap: 1rem;
-          width: 100%;
+          width: 90%;
           flex-wrap: wrap;
           .pokemon-type {
             display: flex;
