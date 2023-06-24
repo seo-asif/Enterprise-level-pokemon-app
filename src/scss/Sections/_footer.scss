@@ -31,7 +31,7 @@ footer {
         justify-content: center;
         align-items: center;
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: all 0.2s ease-in-out;
         border: 1px solid var(--accent-color);
         &:hover {
           background-color: var(--accent-color);
@@ -39,6 +39,8 @@ footer {
       }
       .active {
         background-color: var(--accent-color);
+        border: 2px solid black;
+        transition: all 0.2s ease-in-out;
       }
     }
   }
