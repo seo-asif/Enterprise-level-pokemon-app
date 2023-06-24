@@ -37,14 +37,15 @@ export const addPokemonToList = createAsyncThunk(
       });
 
       if (index === -1) {
-        let types : string[]=[];
+        let types: string[] = [];
 
-if(!pokemon.stats){
-  pokemon.types.forEach((type:any)=>types.push(Object.keys(type).toString()))
-}else{types = pokemon.types as string[]}
-
-
-
+        if (!pokemon.stats) {
+          pokemon.types.forEach((type: any) =>
+            types.push(Object.keys(type).toString())
+          );
+        } else {
+          types = pokemon.types as string[];
+        }
 
         await addDoc(pokemonListRef, {
           pokemon: { id: pokemon.id, name: pokemon.name, types },

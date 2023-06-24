@@ -3,7 +3,7 @@ import { FaPlus, FaTrash } from "react-icons/fa";
 import { pokemonTypeInterface, userPokemonsType } from "../utils/Type";
 import { useLocation, useNavigate } from "react-router-dom";
 
-import { addToCompare, removeFromCompare } from "../app/slices/PokemonSlice";
+import { addToCompare } from "../app/slices/PokemonSlice";
 import { useAppDispatch } from "../app/hooks";
 import { setToast } from "../app/slices/AppSlice";
 import { addPokemonToList } from "../app/reducers/AddPokemonToList";
@@ -33,12 +33,14 @@ const PokemonCardGrid = ({ pokemons }: { pokemons: userPokemonsType[] }) => {
                       className="trash"
                       onClick={() => {
                         dispatch(removePokemon({ id: data.firebaseId! }));
-                        dispatch(setToast("Pokemon Removed Successfully."));
+                        dispatch(
+                          setToast(`${data.name} Removed Successfully.`)
+                        );
                       }}
                     />
                   )}
                 </div>
- 
+
                 <div className="pokemon-card-compare">
                   <IoGitCompare
                     onClick={() => {

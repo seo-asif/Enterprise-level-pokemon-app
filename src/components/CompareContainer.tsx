@@ -5,9 +5,10 @@ import {
 } from "../utils/Type";
 import { FaPlus } from "react-icons/fa";
 import { pokemonTypes } from "../utils/getPokemonTypes";
-import { useDispatch } from "react-redux";
+import { useAppDispatch } from "../app/hooks";
 import { removeFromCompare } from "../app/slices/PokemonSlice";
 import { Link, useNavigate } from "react-router-dom";
+import { addPokemonToList } from "../app/reducers/AddPokemonToList";
 
 const CompareContainer = ({
   pokemon = undefined,
@@ -16,7 +17,7 @@ const CompareContainer = ({
   pokemon?: userPokemonsType;
   isEmpty?: boolean;
 }) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const createStatsArray = (
     types: pokemonTypeInterface[],
@@ -174,7 +175,14 @@ const CompareContainer = ({
             </div>
           </div>
           <div className="compare-action-buttons">
-            <button className="compare-btn">Add</button>
+            <button
+              className="compare-btn"
+              onClick={() => {
+                dispatch(addPokemonToList(pokemon));
+              }}
+            >
+              Add
+            </button>
             <button
               className="compare-btn"
               onClick={() => navigate(`/pokemon/${pokemon.id}`)}

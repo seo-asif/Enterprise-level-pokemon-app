@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { AppTypeInitialState } from "../../utils/Type";
+import { pokemonTabs } from "../../utils/Constants";
 
 const initialState: AppTypeInitialState = {
   toasts: [],
   userInfo: undefined,
+  currentPokemonTab: pokemonTabs.description,
 };
 
 export const AppSlice = createSlice({
@@ -24,6 +26,6 @@ export const AppSlice = createSlice({
   },
 });
 
-export const { setToast, clearToasts,setUserStatus } = AppSlice.actions;
+export const { setToast, clearToasts, setUserStatus } = AppSlice.actions;
 
 export default AppSlice.reducer;

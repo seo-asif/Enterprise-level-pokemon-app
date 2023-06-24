@@ -12,6 +12,7 @@
     "@types/react": "^18.2.13",
     "@types/react-dom": "^18.2.6",
     "axios": "^1.4.0",
+    "extract-colors": "^3.0.0",
     "firebase": "^9.22.2",
     "node-sass": "^9.0.0",
     "react": "^18.2.0",

@@ -15,7 +15,7 @@
   -webkit-backdrop-filter: blur(50px);
   border: 1px solid rgba(23, 20, 20, 0.37);
   display: grid;
-  grid-template-rows: 10vh auto 5vh;
+  grid-template-rows: 10vh auto vh;
   grid-template-columns: 1fr;
   .content {
     margin: 0 5rem;
