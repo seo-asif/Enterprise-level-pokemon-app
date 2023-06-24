@@ -7,6 +7,7 @@ import { addToCompare, removeFromCompare } from "../app/slices/PokemonSlice";
 import { useAppDispatch } from "../app/hooks";
 import { setToast } from "../app/slices/AppSlice";
 import { addPokemonToList } from "../app/reducers/AddPokemonToList";
+import { removePokemon } from "../app/reducers/RemovePokemonFromUserList";
 
 const PokemonCardGrid = ({ pokemons }: { pokemons: userPokemonsType[] }) => {
   const location = useLocation();
@@ -28,16 +29,25 @@ const PokemonCardGrid = ({ pokemons }: { pokemons: userPokemonsType[] }) => {
                       onClick={() => dispatch(addPokemonToList(data))}
                     />
                   ) : (
-                    <FaTrash className="trash" />
+                    <FaTrash
+                      className="trash"
+                      onClick={() => {
+                        dispatch(removePokemon({ id: data.firebaseId! }));
+                        dispatch(setToast("Pokemon Removed Successfully."));
+                      }}
+                    />
                   )}
                 </div>
-
+ 
                 <div className="pokemon-card-compare">
                   <IoGitCompare
                     onClick={() => {
                       dispatch(addToCompare(data));
                       dispatch(
-                        setToast(`${data.name} has been added to Compare Queue`)
+                        setToast(
+                          `${data.name} has been added to Compare Tab. 
+                        `
+                        )
                       );
                     }}
                   />

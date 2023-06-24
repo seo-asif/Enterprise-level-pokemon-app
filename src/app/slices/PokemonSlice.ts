@@ -5,6 +5,8 @@ import {
 } from "../../utils/Type";
 import { getInitialPokemonData } from "../reducers/getInitialPokemonData";
 import { getPokemonData } from "../reducers/getPokemonData";
+import { getUserPokemons } from "../reducers/GetUserPokemons";
+import { removePokemon } from "../reducers/RemovePokemonFromUserList";
 
 const initialState: PokemonTypeInitialState = {
   allPokemon: undefined,
@@ -44,6 +46,17 @@ export const PokemonSlice = createSlice({
     });
     builder.addCase(getPokemonData.fulfilled, (state, action) => {
       state.randomPokemons = action.payload;
+    });
+    builder.addCase(getUserPokemons.fulfilled, (state, action) => {
+      state.userPokemons = action.payload!;
+    });
+    builder.addCase(removePokemon.fulfilled, (state, action) => {
+      const userPokemon = [...state.userPokemons];
+      const index = userPokemon.findIndex(
+        (pokemon) => pokemon.firebaseId === action.payload?.id
+      );
+      userPokemon.splice(index, 1);
+      state.userPokemons = userPokemon;
     });
   },
 });
