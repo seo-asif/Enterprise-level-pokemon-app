@@ -17,9 +17,14 @@ footer {
     // border: 0.5px solid rgba(255, 255, 255, 0.23);
     border-top: none;
     border-bottom: none;
+    z-index: 60;
     ul {
       display: grid;
       color: white;
+      text-shadow: 2px 2px 2px #000000;
+      z-index: 10;
+      background-color: #000000;
+
       grid-template-columns: repeat(4, 1fr);
       list-style-type: none;
       height: 100%;

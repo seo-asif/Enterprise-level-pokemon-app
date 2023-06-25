@@ -1,0 +1,41 @@
+.circle-container {
+  display: flex;
+  margin-top: 3rem;
+justify-content: center;
+  .outer-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 24rem;
+    width: 24rem;
+    border: 0.2rem solid var(--accent-color);
+    border-radius: 50rem;
+    position: relative;
+    .inner-circle {
+      height: 20rem;
+      width: 20rem;
+      border: 0.3rem solid var(--accent-color);
+      border-radius: 40rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        max-inline-size: 100%;
+        block-size: auto;
+        z-index: 50;
+        height: 17rem;
+      }
+    }
+    .lines{
+        display: flex;
+        gap: 3rem;
+        position: absolute;
+        .line{
+            height: 28rem;
+            width: 0.3rem;
+            background-color: var(--accent-color);
+            transform: rotate(45deg);
+        }
+    }
+  }
+}

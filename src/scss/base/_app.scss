@@ -24,7 +24,8 @@
     border-bottom: none;
     height: 90vh;
     // background-color: rgba(255, 255, 255, 0.052);
-    // overflow: hidden;
+    // overflow-y: scroll;
+    position: relative;
   }
 }
 

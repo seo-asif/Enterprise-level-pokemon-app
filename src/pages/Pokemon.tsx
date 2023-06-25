@@ -152,12 +152,12 @@ function Pokemon() {
   }, [params, getPokemonInfo]);
 
   return (
-    <div>
+    <>
       {currentPokemonTab === pokemonTabs.description && <Description />}
       {currentPokemonTab === pokemonTabs.evolution && <Evolution />}
       {currentPokemonTab === pokemonTabs.moves && <CapableMoves />}
       {currentPokemonTab === pokemonTabs.locations && <Location />}
-    </div>
+    </>
   );
 }
 
