@@ -4,8 +4,6 @@
 
 A fully functional Pokedex app built with React, Redux Toolkit, TypeScript, Firebase, and SCSS. This project covers various aspects of web development, including React Hooks, React Router, CSS3 & SCSS, TypeScript, Redux and Redux Toolkit, Firebase Firestore, Axios for API integration, and best practices for components and file structure.
 
-
-
 ## Features
 
 - Browse and search for Pokemon by name or number.
@@ -32,7 +30,7 @@ A fully functional Pokedex app built with React, Redux Toolkit, TypeScript, Fire
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/pokedex-app.git
+git clone https://github.com/seo-asif/Enterprise-level-pokemon-app.git
 ```
 
 2. Navigate to the project directory:
