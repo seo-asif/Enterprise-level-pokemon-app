@@ -6,8 +6,12 @@ import { getInitialPokemonData } from "../app/reducers/getInitialPokemonData";
 import { getPokemonData } from "../app/reducers/getPokemonData";
 import PokemonCardGrid from "../components/PokemonCardGrid";
 import { debounce } from "../utils/Debounce";
+import { setLoading } from "../app/slices/AppSlice";
+import Loader from "../components/Loader";
 
 const Search = () => {
+  const handleChange = debounce((value: string) => getPokemon(value), 1000);
+  const isLoading = useAppSelector(({ app: { isLoading } }) => isLoading);
   const dispatch = useAppDispatch();
 
   const { allPokemon, randomPokemons } = useAppSelector(
@@ -28,7 +32,11 @@ const Search = () => {
     }
   }, [allPokemon, dispatch]);
 
-  const handleChange = debounce((value: string) => getPokemon(value), 1000);
+  useEffect(() => {
+    if (randomPokemons) {
+      dispatch(setLoading(false));
+    }
+  }, [randomPokemons, dispatch]);
 
   const getPokemon = async (value: string) => {
     if (value.length >= 3) {
@@ -48,19 +56,23 @@ const Search = () => {
 
   return (
     <>
-      <div className="search">
-        <h3 className="search-h3">
-          Display Pokemons :{randomPokemons && randomPokemons?.length}
-        </h3>
-        <input
-          type="text"
-          className="pokemon-searchbar"
-          placeholder="Search pokemon"
-          onChange={(e) => handleChange(e.target.value)}
-        />
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className="search">
+          <h3 className="search-h3">
+            Display Pokemons :{randomPokemons && randomPokemons?.length}
+          </h3>
+          <input
+            type="text"
+            className="pokemon-searchbar"
+            placeholder="Search pokemon"
+            onChange={(e) => handleChange(e.target.value)}
+          />
 
-        <PokemonCardGrid pokemons={randomPokemons!} />
-      </div>
+          <PokemonCardGrid pokemons={randomPokemons!} />
+        </div>
+      )}
     </>
   );
 };

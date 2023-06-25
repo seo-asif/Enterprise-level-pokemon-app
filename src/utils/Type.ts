@@ -1,4 +1,5 @@
 export interface AppTypeInitialState {
+  isLoading: boolean;
   toasts: string[];
   userInfo: undefined | { email: string };
   currentPokemonTab: string;

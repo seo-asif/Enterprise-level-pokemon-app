@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useCallback, useState } from "react";
 import Wrapper from "../sections/Wrapper";
 import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../app/hooks";
@@ -15,11 +15,15 @@ import Evolution from "./PokemonPages/Evolution";
 import CapableMoves from "./PokemonPages/CapableMoves";
 import Location from "./PokemonPages/Location";
 import { setCurrentPokemon } from "../app/slices/PokemonSlice";
-
+import Loader from "../components/Loader";
 function Pokemon() {
   const params = useParams();
   const dispatch = useAppDispatch();
   const { currentPokemonTab } = useAppSelector(({ app }) => app);
+
+  const currentPokemon = useAppSelector(
+    ({ pokemon: { currentPokemon } }) => currentPokemon
+  );
 
   const getRecursiveEvolution: any = useCallback(
     (evolutionChain: any, level: number, evolutionData: any) => {
@@ -60,6 +64,7 @@ function Pokemon() {
     [getRecursiveEvolution]
   );
 
+  const [isDataLoading, setIsDataLoading] = useState(true);
   const getPokemonInfo = useCallback(
     async (image: string) => {
       const { data } = await axios.get(`${pokemonRoute}/${params.id}`);
@@ -117,6 +122,7 @@ function Pokemon() {
           pokemonAbilities,
         })
       );
+      setIsDataLoading(false);
     },
     [getEvolutionData, params.id, dispatch]
   );
@@ -153,10 +159,16 @@ function Pokemon() {
 
   return (
     <>
-      {currentPokemonTab === pokemonTabs.description && <Description />}
-      {currentPokemonTab === pokemonTabs.evolution && <Evolution />}
-      {currentPokemonTab === pokemonTabs.moves && <CapableMoves />}
-      {currentPokemonTab === pokemonTabs.locations && <Location />}
+      {!isDataLoading && currentPokemon ? (
+        <>
+          {currentPokemonTab === pokemonTabs.description && <Description />}
+          {currentPokemonTab === pokemonTabs.evolution && <Evolution />}
+          {currentPokemonTab === pokemonTabs.locations && <Location />}
+          {currentPokemonTab === pokemonTabs.moves && <CapableMoves />}
+        </>
+      ) : (
+        <Loader />
+      )}
     </>
   );
 }
